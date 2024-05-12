@@ -146,7 +146,6 @@ public:
                 if (givenEdges[i][0] == e.source && givenEdges[i][1] == e.destination)
                 {
                     float timeSavedRatio = 1.00 * (getGreenLightTime(givenEdges[i][2]) - getGreenLightTime(e.flow)) / getGreenLightTime(givenEdges[i][2]);
-                    // cout << fixed << setprecision(3) << k++ << "\tSRC: " << e.source << ", DEST: " << e.destination << ", Flow: " << e.flow << ", Req Green Light Time: " << getGreenLightTime(e.flow) << " sec, Time saved for Pedestrians: " << getGreenLightTime(givenEdges[i][2]) - getGreenLightTime(e.flow) << ", Ratio of Time Saved: " << timeSavedRatio << endl;
                     if (timeSavedRatio > 1 || timeSavedRatio < 0)
                     {
                         timeSavedRatio = 1;
@@ -184,7 +183,21 @@ void runAll(Graph g)
 int main()
 {
 
-    cout << "\nExample of 6 roads of flow 20:\n";
+    cout << "\nApplications:";
+    cout << "\n1- Saving time for pedesterians and reducing wasted green light time for cars";
+    cout << "\n2- Reducing unnecessary lanes and road costs";
+    cout << "\n3- Finding each road minimum flow for a total desired maximum flow from SRC to DEST";
+    cout << "\n4- Can dynamically adapt and avoid accidents or road closures through setting edge capacity to zero";
+    cout << "\n5- Can use clusters to save Yellow Light time. (Soltted vs Unslotted timing)";
+    cout << "\n6- Can make it easier for emergency vehicles to pass since car spread crossings are minimized (especially with clusters slotted version), and also all opposite direction roads are empty at red light\n\n\n";
+
+    cout << "\nAssumptions:";
+    cout << "\n1- Average car body length is 4.5 meters";
+    cout << "\n2- Average car speed is 30 km/h = 8.333 m/s";
+    cout << "\n3- Average car gap is 2 meters";
+    cout << "\n4- Single lane roads. Can easily support multi-lane through dividing the flow by the number of lanes\n\n\n";
+
+    cout << "\n\nExample of 6 roads of flow 20:\n";
     Graph g1(6);
     g1.addEdge(0, 1, 20);
     g1.addEdge(0, 2, 20);
@@ -200,7 +213,7 @@ int main()
 
     cout << "\n\n\n";
 
-    cout << "\nExample of 6 roads of different flows:\n";
+    cout << "\n\nExample of 6 roads of different flows:\n";
     Graph g2(6);
     g2.addEdge(0, 1, 16);
     g2.addEdge(0, 2, 13);
