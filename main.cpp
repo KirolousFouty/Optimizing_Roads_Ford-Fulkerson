@@ -189,7 +189,8 @@ int main()
     cout << "\n3- Finding each road minimum flow for a total desired maximum flow from SRC to DEST";
     cout << "\n4- Can dynamically adapt and avoid accidents or road closures through setting edge capacity to zero";
     cout << "\n5- Can use clusters to save Yellow Light time. (Soltted vs Unslotted timing)";
-    cout << "\n6- Can make it easier for emergency vehicles to pass since car spread crossings are minimized (especially with clusters slotted version), and also all opposite direction roads are empty at red light\n\n\n";
+    cout << "\n6- Can make it easier for emergency vehicles to pass since car spread crossings are minimized (especially with clusters unslotted version), and also all opposite direction roads are empty at red light";
+    cout << "\n7- If traffic lights of the same road were configured in sync, this will not only be helpful to the drivers, but also to the environment, as the amount of CO2 emissions is reduced\n\n\n";
 
     cout << "\nAssumptions:";
     cout << "\n1- Average car body length is 4.5 meters";
